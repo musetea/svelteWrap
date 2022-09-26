@@ -2,10 +2,11 @@
     import RowHeader from './RowHeader.svelte';
     import ColumnHeader from './ColumnHeader.svelte';
     import Cell from './Cell.svelte';
+    import {getColumnName, getRowIndex, createSheet} from './sheet';
 
-
-    let numOfColumns = 26;
-    let numOfRows = 50;
+    let numOfColumns = 10;
+    let numOfRows = 10;
+    const sheet = createSheet({numOfRows:numOfRows, numOfColumns:numOfColumns} );
 
     //style:grid-template-columns="{`repeat(${numOfColumns},60px)`}"
     //style:grid-template-rows="{`repeat(${numOfColumns}, 20px)`}" 
@@ -24,10 +25,12 @@
     >
     <div class="container">
         {#each { length:numOfColumns} as _, column }
-            {@const colName = String.fromCharCode('A'.charCodeAt(0) + column)}
+            {@const colName = getColumnName(column)}
             {#each { length:numOfRows} as _, row }
-            {@const rowIndex = row + 1}
+            {@const rowIndex =getRowIndex(row) }
+            {@const cellName = colName + rowIndex}
                 <Cell
+                    cell={sheet.get(cellName)}
                     {row}
                     {column}
                     active={activeCell?.column === column && activeCell?.row === row} 

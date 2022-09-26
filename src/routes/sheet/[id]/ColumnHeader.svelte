@@ -21,6 +21,7 @@
         background-color: lightgray;
         grid-row:  1;
         grid-column: calc(var(--column) + 2);
+        text-align: center;
     }
     .active{
         background-color: gray;

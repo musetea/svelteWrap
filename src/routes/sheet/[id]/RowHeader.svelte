@@ -20,7 +20,8 @@
         left: 0;
         background-color: lightgray;
         grid-row:  calc(var(--row) + 2);
-        grid-column: 1
+        grid-column: 1;
+        text-align: center;
     }
 
     .active{
