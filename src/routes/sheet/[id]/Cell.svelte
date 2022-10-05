@@ -83,7 +83,7 @@
     }
 
     .active{
-        border-color: violet;
+        border-color: red;
         border-width: 1px;
     }
 

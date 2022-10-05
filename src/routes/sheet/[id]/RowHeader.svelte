@@ -5,8 +5,11 @@
     export let row:number;
     export let active:boolean;
     export let value: string;
+    export let element: HTMLElement;
 </script>
-<div class="cell"
+
+<div bind:this={element} 
+    class="cell"
     style:--row={row}
     class:active={active}
     on:click={(e) => { dispatcher('select')}}
